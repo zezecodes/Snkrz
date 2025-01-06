@@ -16,20 +16,20 @@ public class SnkrzController {
 
     @GetMapping("/v1/get-sneakers")
     public Iterable<Snkrz> getAllSneakers(){
-        if (snkrzService == null){
-            return (Iterable<Snkrz>) ResponseEntity.status(HttpStatus.NOT_FOUND).body("No sneakers found");
-        }
+        // if (snkrzService == null){
+        //     return (Iterable<Snkrz>) ResponseEntity.status(HttpStatus.NOT_FOUND).body("No sneakers found");
+        // }
         return snkrzService.get();
     }
 
     @GetMapping("/v1/get-sneaker/{id}")
     public Snkrz getSneaker(Integer id){
-        return null;
+        return snkrzService.getById(id);
     }
 
     @PostMapping("v1/add-sneaker")
     public Snkrz addSneaker(){
-        return ;
+        return null;
     }
 
     @PutMapping("/v1/update-sneaker")
