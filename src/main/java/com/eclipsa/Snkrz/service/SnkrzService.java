@@ -30,8 +30,22 @@ public class SnkrzService {
         return sneaker;
     }
 
-    public void removeAllSneakers(){
+    public Snkrz updateSneaker(Integer id, String name, String brand, String[] images, String model){
+        Snkrz sneaker = snkrzRepository.findById(id).orElse(null);
+        if(sneaker == null){
+            return null;
+        }
+        sneaker.setName(name);
+        sneaker.setBrand(brand);
+        sneaker.setImages(images);
+        sneaker.setModel(model);
+        snkrzRepository.save(sneaker);
+        return sneaker;
+    }
+
+    public Snkrz removeAllSneakers(){
         snkrzRepository.deleteAll();
+        return null;
     }
 
     public Snkrz removeSneakerById(Integer id){

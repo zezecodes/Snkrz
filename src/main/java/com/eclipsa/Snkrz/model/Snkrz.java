@@ -5,6 +5,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Entity
@@ -17,15 +19,19 @@ public class Snkrz {
     private int id;
 
     @Column(name = "name")
+    @NotEmpty(message = "Name cannot be empty")
     private String name;
 
     @Column(name = "brand")
+    @NotEmpty(message = "Brand cannot be empty")
     private String brand;
 
     @Column(name = "model")
+    @NotEmpty(message = "Model cannot be empty")
     private String model;
 
     @Column(name = "images")
+    @NotNull(message = "Images cannot be empty")
     private String[] images;
 
     public Integer getId() {
